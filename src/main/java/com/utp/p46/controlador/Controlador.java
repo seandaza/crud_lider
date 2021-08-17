@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
+import com.utp.p46.modelo.Lider;
 import com.utp.p46.vista.Vista;
 
 public class Controlador {
@@ -58,9 +58,17 @@ public class Controlador {
             //Ejecutar y obtener los resultados de la consulta
             ResultSet resultado = pStatement.executeQuery();
 
-
+            //Verificamos que haya almenos un registro como respuesta
             if(resultado.next()){
-                System.out.println(resultado.getString("Nombre"));
+                //Crear el objeto
+                Lider objLider = new Lider();
+                //Pasar datos de la BD al objeto
+                objLider.setId(resultado.getInt("ID_Lider"));
+                objLider.setNombre(resultado.getString("Nombre"));
+                objLider.setPrimer_apellido(resultado.getString("Primer_Apellido"));
+                objLider.setSegundo_apellido(resultado.getString("Segundo_Apellido"));
+                //...Datos restantes
+                this.vista.mostrar_lider(objLider);
             }
             
         } catch (Exception e) {
