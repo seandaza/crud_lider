@@ -11,7 +11,7 @@ public class Lider {
     private int salario;
     private String ciudad_residencia;
     private String cargo;
-    private String clasificacion;
+    private int clasificacion;
     private String documento_identidad;
     private String fecha_nacimiento;
 
@@ -24,14 +24,14 @@ public class Lider {
 
 
 
-    public Lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, String clasificacion, String documento_identidad, String fecha_nacimiento){
+    public Lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, int clasificacion, String documento_identidad, String fecha_nacimiento){
         this.id = id;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;
         this.segundo_apellido = segundo_apellido;
         this.salario = salario;
         this.ciudad_residencia = ciudad_residencia;
-        this.setCargo(cargo);
+        this.cargo = cargo;
         this.clasificacion = clasificacion;
         this.documento_identidad = documento_identidad;
         this.fecha_nacimiento = fecha_nacimiento;
@@ -89,11 +89,11 @@ public class Lider {
         this.ciudad_residencia = ciudad_residencia;
     }
 
-    public String getClasificacion() {
+    public int getClasificacion() {
         return clasificacion;
     }
 
-    public void SetClasificiacion(String clasificacion) {
+    public void SetClasificiacion(int clasificacion) {
         this.clasificacion = clasificacion;
     }
 
