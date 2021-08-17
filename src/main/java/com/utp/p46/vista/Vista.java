@@ -15,7 +15,12 @@ public class Vista {
         System.out.println("Nombre: "+lider.getNombre());
         System.out.println("Primer apellido: "+lider.getPrimer_apellido());
         System.out.println("Segundo apellido: "+lider.getSegundo_apellido());
-        //...demas datos
+        System.out.println("Salario: "+lider.getSalario());
+        System.out.println("Ciudad residencia: "+lider.getCiudad_residencia());
+        System.out.println("Cargo: "+lider.getCargo());
+        System.out.println("Clasificacion: "+lider.getClasificacion());
+        System.out.println("Documento identidad: "+ lider.getDocumento_identidad());
+        System.out.println("Fecha Nacimiento: "+ lider.getFecha_nacimiento());
     }
     
 

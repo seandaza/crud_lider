@@ -67,7 +67,13 @@ public class Controlador {
                 objLider.setNombre(resultado.getString("Nombre"));
                 objLider.setPrimer_apellido(resultado.getString("Primer_Apellido"));
                 objLider.setSegundo_apellido(resultado.getString("Segundo_Apellido"));
-                //...Datos restantes
+                objLider.setSalario(resultado.getInt("Salario"));
+                objLider.setCiudad_residencia(resultado.getString("Ciudad_Residencia"));
+                objLider.setCargo(resultado.getString("Cargo"));
+                objLider.setClasificiacion(resultado.getInt("Clasificacion"));
+                objLider.setDocumento_identidad(resultado.getString("Documento_Identidad"));
+                objLider.setFecha_nacimiento(resultado.getString("Fecha_Nacimiento"));
+                
                 this.vista.mostrar_lider(objLider);
             }
             

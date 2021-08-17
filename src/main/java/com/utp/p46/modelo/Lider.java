@@ -93,7 +93,7 @@ public class Lider {
         return clasificacion;
     }
 
-    public void SetClasificiacion(int clasificacion) {
+    public void setClasificiacion(int clasificacion) {
         this.clasificacion = clasificacion;
     }
 
