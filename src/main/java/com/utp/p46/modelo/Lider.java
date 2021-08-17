@@ -22,14 +22,16 @@ public class Lider {
 
     }
 
+
+
     public Lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, String clasificacion, String documento_identidad, String fecha_nacimiento){
         this.id = id;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;
         this.segundo_apellido = segundo_apellido;
         this.salario = salario;
-        this.ciudad = ciudad_residencia;
-        this.cargo = cargo;
+        this.ciudad_residencia = ciudad_residencia;
+        this.setCargo(cargo);
         this.clasificacion = clasificacion;
         this.documento_identidad = documento_identidad;
         this.fecha_nacimiento = fecha_nacimiento;
@@ -111,6 +113,13 @@ public class Lider {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
 
 
 
