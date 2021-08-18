@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.utp.p46.modelo.Lider;
-import com.utp.p46.vista.Vista;
+//import com.utp.p46.vista.Vista;
 
 public class Controlador {
     /***********
@@ -120,7 +120,28 @@ public class Controlador {
         return new Lider(id, nombre, primer_apellido, segundo_apellido, salario, ciudad_residencia, cargo, clasificacion, documento_identidad, fecha_nacimiento);
     } 
 
-    public void actualizar_lider(){
+    public void actualizar_lider(Lider objLider, int id){
+        String query = "UPDATE lider SET ID_Lider = ?, Nombre = ?, Primer_Apellido = ?, Segundo_Apellido = ?, Salario = ?, Ciudad_Residencia = ?, Cargo = ?, Clasificacion = ?, Documento_Identidad = ?, Fecha_Nacimiento = ? WHERE ID_lider = ?";
+      
+        try {
+            PreparedStatement pstStatement = this.conn.prepareStatement(query);
+            //Pasar los  parametros al query
+            pstStatement.setInt(1, objLider.getId());
+            pstStatement.setString(2, objLider.getNombre());
+            pstStatement.setString(3, objLider.getPrimer_apellido());
+            pstStatement.setString(4, objLider.getSegundo_apellido());
+            pstStatement.setInt(5, objLider.getSalario());
+            pstStatement.setString(6, objLider.getCiudad_residencia());
+            pstStatement.setString(7, objLider.getCargo());
+            pstStatement.setInt(8, objLider.getClasificacion());
+            pstStatement.setString(9, objLider.getDocumento_identidad());
+            pstStatement.setString(10, objLider.getFecha_nacimiento());
+            pstStatement.setInt(11, id);
+
+            
+        } catch (Exception e) {
+            System.err.println(e);
+        }
 
         
 

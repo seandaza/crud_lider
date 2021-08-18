@@ -48,7 +48,9 @@ public class Vista {
         
     }
     
-    public void crear_formulario(){
+    public void crear_formulario(boolean update, Lider objLider){
+
+        int id_temporal = objLider.getId();
         
         try 
            ( Scanner entrada = new Scanner(System.in)){
@@ -83,14 +85,24 @@ public class Vista {
             System.out.println("Ingrese Fecha de Nacimiento (yyyy-mm-dd): ");
             String fecha_nacimiento = entrada.next();
 
-            this.objControlador.insertar_lider(this.objControlador.built_lider(id, nombre, primer_apellido, segundo_apellido, salario, ciudad_residencia, cargo, clasificacion, documento_identidad, fecha_nacimiento));
+            if (update){
+                objLider = this.objControlador.built_lider(id, nombre, pApellido, sApellido, salario, ciudad, cargo, clasificacion, documento, fecha_nacimiento);
+                this.objControlador.actualizar_lider(objLider, id_temporal);
+
+            }else{
+                this.objControlador.insertar_lider(this.objControlador.built_lider(id, nombre, pApellido, sApellido, salario, ciudad, cargo, clasificacion, documento, fecha_nacimiento));
+
+
+            }
+
 
 
            }
          catch (Exception e) {
+             System.err.println(e);
             
         }
-        return objLider;
+        
     }
 
     public void actualizar_lider(){
@@ -102,6 +114,9 @@ public class Vista {
 
         System.out.println("-------------DATOS DEL LIDER A ACTUALIZAR---------------");
         this.mostrar_lider(objLider);
+        System.out.println("");
+
+        this.crear_formulario(true, objLider);
 
             
         } catch (Exception e) {
