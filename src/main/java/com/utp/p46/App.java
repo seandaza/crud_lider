@@ -11,6 +11,7 @@ public class App
         Controlador objControlador = new Controlador(vista);
 
         objControlador.conectar_bd();
-        objControlador.buscar_lider("P12WmZ2");
+        //objControlador.buscar_lider("P12WmZ2");
+        objControlador.insertar_lider();
     }
 }

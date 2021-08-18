@@ -32,7 +32,7 @@ public class Controlador {
             this.conn = DriverManager.getConnection("jdbc:sqlite:ProyectosConstruccion.db");
             System.out.println("Conexion exitosa!");
         } catch (Exception e) {
-            //TODO: handle exception
+            
             System.out.println(e);
         }
 
@@ -78,7 +78,7 @@ public class Controlador {
             }
             
         } catch (Exception e) {
-            //TODO: handle exception
+            
             System.out.println(e);
         }
     }
@@ -88,7 +88,7 @@ public class Controlador {
         //Consulta SQL
         String query = "INSERT INTO lider VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
-            PreparedStatement pStatement = this.conn.prepareStatement(query)
+            PreparedStatement pStatement = this.conn.prepareStatement(query);
             pStatement.setInt(1, objLider.getId());
             pStatement.setString(2, objLider.getNombre());
             pStatement.setString(3, objLider.getPrimer_apellido());
@@ -99,10 +99,18 @@ public class Controlador {
             pStatement.setInt(8, objLider.getClasificacion());
             pStatement.setString(9, objLider.getDocumento_identidad());
             pStatement.setString(10, objLider.getFecha_nacimiento());
+
+            //Ejecutar query
+
+            if (pStatement.executeUpdate() == 1){
+                System.out.println("Lider registrado con exito!");
+            }
+
         } catch (Exception e) {
-            //TODO: handle exception
+            
+            System.err.println(e);
         }
-        ;
+        
     }
 }
  
