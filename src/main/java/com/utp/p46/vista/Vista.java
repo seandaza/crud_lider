@@ -11,6 +11,7 @@ public class Vista {
 
     public void mostrar_lider(Lider lider){
         System.out.println("--------------------LIDER------------------------");
+        System.out.println("");
         System.out.println("Id: "+lider.getId());
         System.out.println("Nombre: "+lider.getNombre());
         System.out.println("Primer apellido: "+lider.getPrimer_apellido());
@@ -21,7 +22,13 @@ public class Vista {
         System.out.println("Clasificacion: "+lider.getClasificacion());
         System.out.println("Documento identidad: "+ lider.getDocumento_identidad());
         System.out.println("Fecha Nacimiento: "+ lider.getFecha_nacimiento());
+        System.out.println("");
         System.out.println("---------------------------------------------------");
+        
+    }
+    
+    public Lider crear_lider(){
+        return new Lider();
     }
     
 
