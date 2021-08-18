@@ -116,6 +116,9 @@ public class Controlador {
         
     }
 
+    public Lider built_lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, int clasificacion, String documento_identidad, String fecha_nacimiento){
+        return new Lider(id, nombre, primer_apellido, segundo_apellido, salario, ciudad_residencia, cargo, clasificacion, documento_identidad, fecha_nacimiento);
+    } 
 
     public void actualizar_lider(){
 

@@ -14,7 +14,7 @@ public class Vista {
         this.objControlador = new Controlador();
     }
 
-    public void menu(){
+    public void menu(){  
 
     }
 
@@ -29,7 +29,7 @@ public class Vista {
             System.out.println(e);
         }
     }
-
+ 
     public void mostrar_lider(Lider lider){
         System.out.println("--------------------LIDER------------------------");
         System.out.println("");
@@ -48,40 +48,42 @@ public class Vista {
         
     }
     
-    public Lider crear_formulario(){
-        Lider objLider = new Lider();
+    public void crear_formulario(){
+        
         try 
            ( Scanner entrada = new Scanner(System.in)){
 
             System.out.println("Ingrese el id: ");
-            objLider.setId(entrada.nextInt() );
+            int id = entrada.nextInt();
 
             System.out.println("Ingrese el nombre: ");
-            objLider.setNombre(entrada.next());
+            String nombre = entrada.next();
 
             System.out.println("Ingrese el primer apellido: ");
-            objLider.setPrimer_apellido(entrada.next());
+            String pApellido = entrada.next();
 
             System.out.println("Ingrese el segundo apellido: ");
-            objLider.setSegundo_apellido(entrada.next());
+            String sApellido = entrada.next();
    
             System.out.println("Ingrese el salario: ");
-            objLider.setSalario(entrada.nextInt());
+            int salario = entrada.nextInt();
 
             System.out.println("Ingrese la Ciudad de Residencia: ");
-            objLider.setCiudad_residencia(entrada.next());
+            String ciudad = entrada.next();
 
             System.out.println("Ingrese el Cargo: ");
-            objLider.setCargo(entrada.next());
+            String cargo = entrada.next();
 
             System.out.println("Ingrese la Clasificacion: ");
-            objLider.setClasificiacion(entrada.nextInt());
+            int clasificacion = entrada.nextInt();
 
             System.out.println("Ingrese el Documento de identidad: ");
-            objLider.setDocumento_identidad(entrada.next());
+            String documento = entrada.next();
 
             System.out.println("Ingrese Fecha de Nacimiento (yyyy-mm-dd): ");
-            objLider.setFecha_nacimiento(entrada.next());
+            String fecha_nacimiento = entrada.next();
+
+            this.objControlador.insertar_lider(this.objControlador.built_lider(id, nombre, primer_apellido, segundo_apellido, salario, ciudad_residencia, cargo, clasificacion, documento_identidad, fecha_nacimiento));
 
 
            }
@@ -96,6 +98,11 @@ public class Vista {
 
         System.out.println("Ingrese la cedula del lider a actualizar: ");
         String documento_identidad = entrada.next();
+        Lider objLider = this.objControlador.buscar_lider(documento_identidad);
+
+        System.out.println("-------------DATOS DEL LIDER A ACTUALIZAR---------------");
+        this.mostrar_lider(objLider);
+
             
         } catch (Exception e) {
     
