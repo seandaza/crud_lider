@@ -20,7 +20,7 @@ public class Controlador {
      ***********/
 
      public Controlador(){
-       
+       this.conectar_bd();
      }
     /***********
      * Metodos
@@ -116,9 +116,13 @@ public class Controlador {
         
     }
 
-    public Lider built_lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, int clasificacion, String documento_identidad, String fecha_nacimiento){
+    public Lider construir_lider(int id, String nombre, String primer_apellido, String segundo_apellido, int salario, String ciudad_residencia, String cargo, int clasificacion, String documento_identidad, String fecha_nacimiento){
         return new Lider(id, nombre, primer_apellido, segundo_apellido, salario, ciudad_residencia, cargo, clasificacion, documento_identidad, fecha_nacimiento);
     } 
+
+    public Lider construir_Lider(){
+        return new Lider();
+    }
 
     public void actualizar_lider(Lider objLider, int id){
         String query = "UPDATE lider SET ID_Lider = ?, Nombre = ?, Primer_Apellido = ?, Segundo_Apellido = ?, Salario = ?, Ciudad_Residencia = ?, Cargo = ?, Clasificacion = ?, Documento_Identidad = ?, Fecha_Nacimiento = ? WHERE ID_lider = ?";

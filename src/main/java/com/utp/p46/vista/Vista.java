@@ -48,9 +48,9 @@ public class Vista {
         
     }
     
-    public void crear_formulario(boolean update, Lider objLider){
+    public Lider crear_formulario(){
 
-        int id_temporal = objLider.getId();
+        Lider objLider = this.objControlador.construir_Lider();
         
         try 
            ( Scanner entrada = new Scanner(System.in)){
@@ -85,15 +85,7 @@ public class Vista {
             System.out.println("Ingrese Fecha de Nacimiento (yyyy-mm-dd): ");
             String fecha_nacimiento = entrada.next();
 
-            if (update){
-                objLider = this.objControlador.built_lider(id, nombre, pApellido, sApellido, salario, ciudad, cargo, clasificacion, documento, fecha_nacimiento);
-                this.objControlador.actualizar_lider(objLider, id_temporal);
-
-            }else{
-                this.objControlador.insertar_lider(this.objControlador.built_lider(id, nombre, pApellido, sApellido, salario, ciudad, cargo, clasificacion, documento, fecha_nacimiento));
-
-
-            }
+            objLider = this.objControlador.construir_lider(id,nombre,pApellido, sApellido, salario, ciudad, cargo, clasificacion, documento, fecha_nacimiento);
 
 
 
@@ -102,7 +94,15 @@ public class Vista {
              System.err.println(e);
             
         }
+        return objLider;
         
+    }
+
+    public void crear_lider(){
+        Lider objLider = this.crear_formulario();
+        this.objControlador.insertar_lider(objLider);
+        System.out.println("Lider registrado con exito!");
+
     }
 
     public void actualizar_lider(){
@@ -111,14 +111,21 @@ public class Vista {
         System.out.println("Ingrese la cedula del lider a actualizar: ");
         String documento_identidad = entrada.next();
         Lider objLider = this.objControlador.buscar_lider(documento_identidad);
-
-        System.out.println("-------------DATOS DEL LIDER A ACTUALIZAR---------------");
-        this.mostrar_lider(objLider);
-        System.out.println("");
-
-        this.crear_formulario(true, objLider);
-
+        //Validar que el lider exista
+        if(objLider.getNombre()== null){
+            System.out.println("El lider con el documento ingresado no existe!");
+        }else{
+            System.out.println("-------------DATOS DEL LIDER A ACTUALIZAR---------------");
+            this.mostrar_lider(objLider);
+            System.out.println("--------------------------------------------------------");
+            System.out.println("FORMULARIO DE ACTUALIZACION:");
+            Lider update_lider = this.crear_formulario();
+            this.objControlador.actualizar_lider(update_lider, objLider.getId());
             
+        }
+
+
+              
         } catch (Exception e) {
     
         }

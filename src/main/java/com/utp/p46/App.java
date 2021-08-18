@@ -17,6 +17,7 @@ public class App
         //objControlador.insertar_lider();
 
         Vista objVista = new Vista();
-        objVista.actualizar_lider();
+        //objVista.actualizar_lider();
+        objVista.buscar_lider();
     }
 }
