@@ -13,14 +13,14 @@ public class Controlador {
      * Atributos
      ***********/  
      private Connection conn;
-     private Vista vista;
+     
 
     /***********
      * Constructor
      ***********/
 
-     public Controlador(Vista vista){
-         this.vista = vista;
+     public Controlador(){
+       
      }
     /***********
      * Metodos
@@ -39,7 +39,9 @@ public class Controlador {
 
     }
 
-    public void buscar_lider(String documento_identidad){
+    public Lider buscar_lider(String documento_identidad){
+        //Crear el objeto
+        Lider objLider = new Lider();
         try {
             //Consulta sql vulnerable a Sql injection
             /*
@@ -60,8 +62,8 @@ public class Controlador {
 
             //Verificamos que haya almenos un registro como respuesta
             if(resultado.next()){
-                //Crear el objeto
-                Lider objLider = new Lider();
+            
+               
                 //Pasar datos de la BD al objeto
                 objLider.setId(resultado.getInt("ID_Lider"));
                 objLider.setNombre(resultado.getString("Nombre"));
@@ -74,17 +76,18 @@ public class Controlador {
                 objLider.setDocumento_identidad(resultado.getString("Documento_Identidad"));
                 objLider.setFecha_nacimiento(resultado.getString("Fecha_Nacimiento"));
                 
-                this.vista.mostrar_lider(objLider);
+                
             }
             
         } catch (Exception e) {
             
             System.out.println(e);
-        }
+        }  
+        return objLider;
     }
 
-    public void insertar_lider(){
-        Lider objLider = this.vista.crear_lider();
+    public void insertar_lider(Lider objLider){
+        
         //Consulta SQL
         String query = "INSERT INTO lider VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -111,6 +114,13 @@ public class Controlador {
             System.err.println(e);
         }
         
+    }
+
+
+    public void actualizar_lider(){
+
+        
+
     }
 }
  

@@ -2,13 +2,32 @@ package com.utp.p46.vista;
 
 import java.util.Scanner;
 
+import com.utp.p46.controlador.Controlador;
 import com.utp.p46.modelo.Lider;
 
 public class Vista {
+    //Atributo
+    private Controlador objControlador;
+
     //Constructor
+    public Vista(){
+        this.objControlador = new Controlador();
+    }
 
     public void menu(){
 
+    }
+
+    public void buscar_lider(){
+        try (Scanner entrada = new Scanner(System.in)) {
+            System.out.println("Ingrese el documento del lider que desea consultar");
+            String documento = entrada.next();
+
+            this.mostrar_lider(this.objControlador.buscar_lider(documento));
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void mostrar_lider(Lider lider){
@@ -29,7 +48,7 @@ public class Vista {
         
     }
     
-    public Lider crear_lider(){
+    public Lider crear_formulario(){
         Lider objLider = new Lider();
         try 
            ( Scanner entrada = new Scanner(System.in)){
@@ -70,6 +89,17 @@ public class Vista {
             
         }
         return objLider;
+    }
+
+    public void actualizar_lider(){
+        try (Scanner entrada = new Scanner(System.in)) {
+
+        System.out.println("Ingrese la cedula del lider a actualizar: ");
+        String documento_identidad = entrada.next();
+            
+        } catch (Exception e) {
+    
+        }
     }
     
 
