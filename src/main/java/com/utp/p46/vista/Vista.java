@@ -14,7 +14,7 @@ public class Vista {
         this.objControlador = new Controlador();
     }
 
-    public void menu(){  
+    public void crear_menu(){  
 
         System.out.println("---------------CRUD LIDER-------------");
         System.out.println("1 -> Buscar Lider");
@@ -38,7 +38,7 @@ public class Vista {
                 break;
                 default:
                     System.out.println("Opcion incorrecta!");
-                    menu();
+                    crear_menu();
                     break;
             }
             

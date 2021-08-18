@@ -19,6 +19,7 @@ public class App
         Vista objVista = new Vista();
         //objVista.actualizar_lider();
         //objVista.buscar_lider();
-        objVista.actualizar_lider();
+        //objVista.actualizar_lider();
+        objVista.crear_menu();
     }
 }
