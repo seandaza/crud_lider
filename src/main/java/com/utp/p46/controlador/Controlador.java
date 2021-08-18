@@ -142,7 +142,12 @@ public class Controlador {
             pstStatement.setString(10, objLider.getFecha_nacimiento());
             pstStatement.setInt(11, id);
 
-            
+            if(pstStatement.executeUpdate() == 1) {
+                System.out.println("Actualizacion Satisfatoria!");
+            }else {
+                System.out.println("Error al actualizar! ");
+            }
+
         } catch (Exception e) {
             System.err.println(e);
         }
