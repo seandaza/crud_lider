@@ -16,6 +16,35 @@ public class Vista {
 
     public void menu(){  
 
+        System.out.println("---------------CRUD LIDER-------------");
+        System.out.println("1 -> Buscar Lider");
+        System.out.println("2 -> Actualizar Lider");
+        System.out.println("3 -> Registrar Lider");
+        System.out.println("0 -> Salir");
+
+        System.out.println("Por favor ingrese una opcion: ");
+        try (Scanner entrada = new Scanner(System.in)){
+            int opcion = entrada.nextInt();
+            
+            switch(opcion){
+                case 1:
+                this.buscar_lider();
+                break;
+                case 2:
+                this.actualizar_lider();
+                break;
+                case 3: 
+                this.crear_lider();
+                break;
+                default:
+                    System.out.println("Opcion incorrecta!");
+                    menu();
+                    break;
+            }
+            
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     public void buscar_lider(){
