@@ -82,4 +82,27 @@ public class Controlador {
             System.out.println(e);
         }
     }
+
+    public void insertar_lider(){
+        Lider objLider = this.vista.crear_lider();
+        //Consulta SQL
+        String query = "INSERT INTO lider VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement pStatement = this.conn.prepareStatement(query)
+            pStatement.setInt(1, objLider.getId());
+            pStatement.setString(2, objLider.getNombre());
+            pStatement.setString(3, objLider.getPrimer_apellido());
+            pStatement.setString(4, objLider.getSegundo_apellido());
+            pStatement.setInt(5, objLider.getSalario());
+            pStatement.setString(6, objLider.getCiudad_residencia());
+            pStatement.setString(7, objLider.getCargo());
+            pStatement.setInt(8, objLider.getClasificacion());
+            pStatement.setString(9, objLider.getDocumento_identidad());
+            pStatement.setString(10, objLider.getFecha_nacimiento());
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        ;
+    }
 }
+ 
