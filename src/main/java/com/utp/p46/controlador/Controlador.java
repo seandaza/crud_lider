@@ -142,6 +142,11 @@ public class Controlador {
             pstStatement.setString(10, objLider.getFecha_nacimiento());
             pstStatement.setInt(11, id);
 
+            /**pstStatement.executeUpdate() -> Ejecuta el query.
+             * se obtiene como respuesta:
+             * 1 -> Ejecucion satisfactoria
+             * 2 -> No se efectuo ningun registro
+             * */
             if(pstStatement.executeUpdate() == 1) {
                 System.out.println("Actualizacion Satisfatoria!");
             }else {
