@@ -1,4 +1,4 @@
-package com.utp.p46.modelo;
+package com.utp.p46.modelo.vo;
 
 public class Lider {
     /***********

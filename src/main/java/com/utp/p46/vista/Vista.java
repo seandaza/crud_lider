@@ -3,7 +3,7 @@ package com.utp.p46.vista;
 import java.util.Scanner;
 
 import com.utp.p46.controlador.Controlador;
-import com.utp.p46.modelo.Lider;
+import com.utp.p46.modelo.vo.Lider;
 
 public class Vista {
     //Atributo
